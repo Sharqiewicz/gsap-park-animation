@@ -29,8 +29,25 @@ function App() {
     const lamp = elements.getElementById('lamp');
     const rainbow = elements.getElementById('rainbow');
 
-    const all = [ flowers1, flowers2, flowers3, flowers4, tree1__down, tree1__up, tree2__down, tree2__up, tree3__down, tree3__up, tree4__down, tree4__up, bench, human, road, birds, lamp, rainbow];
+    const all = [ flowers1, flowers2, flowers3, flowers4, tree1__down, tree1__up, tree2__down, tree2__up, tree3__down, tree3__up, tree4__down, tree4__up, bench, human, road, ...birds.children, lamp, rainbow];
 
+    gsap.set(all, { autoAlpha: 0});
+
+    const tl = gsap.timeline({defaults: { ease: 'power3.inOut'}});
+
+    tl.fromTo(road, { y:'+=300' }, {duration: 1,  y: '-=300', autoAlpha: 1 } )
+    .fromTo(tree1__down, {y: "+=100"}, {duration: .8, y:'-=100', autoAlpha: 1})
+    .fromTo(tree1__up, {}, {duration: .3, autoAlpha: 1})
+    .fromTo(flowers1, {y: "+=100"}, {duration: .4, y:'-=100', autoAlpha: 1})
+    .fromTo(flowers3, {y: "+=100"}, {duration: .4, y:'-=100', autoAlpha: 1})
+    .fromTo(tree2__down, {y: "+=100"}, {duration: .4, y:'-=100', autoAlpha: 1})
+    .fromTo(tree2__up, {}, {duration: .3, autoAlpha: 1})
+    .fromTo(flowers2, {y: "+=100"}, {duration: .4, y:'-=100', autoAlpha: 1})
+    .fromTo(tree3__down, {y: "+=100"}, {duration: .4, y:'-=100', autoAlpha: 1})
+    .to(tree3__up, {duration: .3, autoAlpha: 1}, '-=0.2')
+    .fromTo(tree4__down, {y: "+=100"}, {duration: .4, y:'-=100', autoAlpha: 1})
+    .to(tree4__up, {duration: .3, autoAlpha: 1}, '-=0.2')
+    .fromTo(birds.children,{x: "+=100"}, {duration: 1, x: "-=100", autoAlpha: 1, stagger: 0.3})
   })
 
   return (
