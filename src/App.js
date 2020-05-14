@@ -11,7 +11,6 @@ function App() {
     const flowers1 = elements.getElementById('flowers1');
     const flowers2 = elements.getElementById('flowers2');
     const flowers3 = elements.getElementById('flowers3');
-    const flowers4 = elements.getElementById('flowers4');
 
     const tree1__down = elements.getElementById('tree1__down');
     const tree1__up = elements.getElementById('tree1__up');
@@ -29,7 +28,7 @@ function App() {
     const lamp = elements.getElementById('lamp');
     const rainbow = elements.getElementById('rainbow');
 
-    const all = [ flowers1, flowers2, flowers3, flowers4, tree1__down, tree1__up, tree2__down, tree2__up, tree3__down, tree3__up, tree4__down, tree4__up, bench, human, road, ...birds.children, lamp, rainbow];
+    const all = [ flowers1, flowers2, flowers3, tree1__down, tree1__up, tree2__down, tree2__up, tree3__down, tree3__up, tree4__down, tree4__up, bench, human, road, ...birds.children, lamp, rainbow];
 
     gsap.set(all, { autoAlpha: 0});
 
@@ -38,17 +37,24 @@ function App() {
     tl.fromTo(road, { y:'+=300' }, {duration: 1,  y: '-=300', autoAlpha: 1 } )
     .fromTo(tree1__down, {y: "+=100"}, {duration: .8, y:'-=100', autoAlpha: 1})
     .fromTo(tree1__up, {}, {duration: .3, autoAlpha: 1})
-    .fromTo(flowers1, {y: "+=100"}, {duration: .4, y:'-=100', autoAlpha: 1})
-    .fromTo(flowers3, {y: "+=100"}, {duration: .4, y:'-=100', autoAlpha: 1})
+    .fromTo(flowers1, {y: "+=50"}, {duration: .4, y:'-=50', autoAlpha: 1})
+    .fromTo(flowers3, {y: "+=50"}, {duration: .4, y:'-=50', autoAlpha: 1})
+    .fromTo(flowers2, {y: "+=50"}, {duration: .4, y:'-=50', autoAlpha: 1})
     .fromTo(tree2__down, {y: "+=100"}, {duration: .4, y:'-=100', autoAlpha: 1})
     .fromTo(tree2__up, {}, {duration: .3, autoAlpha: 1})
-    .fromTo(flowers2, {y: "+=100"}, {duration: .4, y:'-=100', autoAlpha: 1})
     .fromTo(tree3__down, {y: "+=100"}, {duration: .4, y:'-=100', autoAlpha: 1})
     .to(tree3__up, {duration: .3, autoAlpha: 1}, '-=0.2')
     .fromTo(tree4__down, {y: "+=100"}, {duration: .4, y:'-=100', autoAlpha: 1})
     .to(tree4__up, {duration: .3, autoAlpha: 1}, '-=0.2')
-    .fromTo(birds.children,{x: "+=100"}, {duration: 1, x: "-=100", autoAlpha: 1, stagger: 0.3})
-  })
+    .fromTo(bench, { y:'-=30' }, {duration: 1,  y: '+=30', autoAlpha: 1 } )
+    .fromTo(lamp, { y:'-=30' }, {duration: 1,  y: '+=30', autoAlpha: 1 } )
+    .fromTo(human, { y:'-=50' }, {duration: 1,  y: '+=50', autoAlpha: 1 } )
+    .fromTo(birds.children,{x: "+=100"}, {duration: .6, x: "-=100", autoAlpha: 1, stagger: 0.2})
+    .to(rainbow, {duration: 1, autoAlpha: 1 } )
+
+
+
+  }, []);
 
   return (
     <div ref={wrapper} className="App">
