@@ -1,5 +1,6 @@
 import React, {useRef, useEffect} from 'react';
 import { ReactComponent as Park} from './park.svg';
+import gsap from 'gsap';
 
 function App() {
   const wrapper = useRef(null);
@@ -27,6 +28,9 @@ function App() {
     const bench = elements.getElementById('bench');
     const lamp = elements.getElementById('lamp');
     const rainbow = elements.getElementById('rainbow');
+
+    const all = [ flowers1, flowers2, flowers3, flowers4, tree1__down, tree1__up, tree2__down, tree2__up, tree3__down, tree3__up, tree4__down, tree4__up, bench, human, road, birds, lamp, rainbow];
+
   })
 
   return (
